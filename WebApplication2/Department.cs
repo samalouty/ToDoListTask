@@ -5,6 +5,6 @@
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public List<Employee> employees { get; set; }  // one department has many employees
+        public List<Employee> Employees { get; set; }  // one department has many employees
     }
 }

@@ -11,7 +11,7 @@ namespace WebApplication2
 
         public Department Department { get; set; }  // one employee to one department 
 
-        public List<Project> projects { get; set; } // one employee to many projects
+        public List<Project> Projects { get; set; } // one employee to many projects
 
        public CarLicense CarLicense { get; set; }
     }
