@@ -7,16 +7,16 @@ namespace WebApplication2.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-//        private static int id = 0;
+        private static int id = 0;
 
         private static int num = 0;
 
-//        private static List<Employee> employees = new List<Employee>();
+        private static List<Employee> employees = new List<Employee>();
 
         private static List<ToDoItem> toDoItems = new List<ToDoItem>();
 
 
-        [HttpGet("GetAllTasks")]
+/*        [HttpGet("GetAllTasks")]
         public IActionResult getAllTasks()
         {
             return Ok(toDoItems);
@@ -81,65 +81,66 @@ namespace WebApplication2.Controllers
             toDoItems.Remove(task);
             return NoContent();
         }
+*/
 
+        [HttpGet("GetEmployee")]
+        public IActionResult GetAllEmployees()
+        {
+            return Ok(employees);
+        }
 
-        /*        [HttpGet("GetEmployee")]
-                public IActionResult GetAllEmployees() {
-                    return Ok(employees);
-                }*/
-        /*
-                [HttpPost("CreateEmployee")]
-                public IActionResult CreateEmployee(Employee newEmployee)
-                {
-                    newEmployee.Id = id++;
-                    employees.Add(newEmployee);
-                    return CreatedAtAction(nameof(GetEmployee), new { id = newEmployee.Id }, newEmployee);
-                }*/
+        [HttpPost("CreateEmployee")]
+        public IActionResult CreateEmployee(Employee newEmployee)
+        {
+            newEmployee.Id = id++;
+            employees.Add(newEmployee);
+            return CreatedAtAction(nameof(GetEmployee), new { id = newEmployee.Id }, newEmployee);
+        }
 
-        /* [HttpGet("getByID")]
+        [HttpGet("getByID")]
 
-         public IActionResult GetEmployee(int id)
-         {
-             var employee = employees.SingleOrDefault(x => x.Id == id);
-             if (employee == null)
-             {
-                 return NotFound();
-             }
+        public IActionResult GetEmployee(int id)
+        {
+            var employee = employees.SingleOrDefault(x => x.Id == id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
 
-             return Ok(employee);
+            return Ok(employee);
 
-         }*/
+        }
 
-        /* [HttpDelete("DeleteEmployee")]
+        [HttpDelete("DeleteEmployee")]
 
-         public IActionResult DeleteEmployee(int id)
-         {
-             var employee = employees.SingleOrDefault(employee => employee.Id == id);
-             if (employee == null)
-             {
-                 return NotFound();
-             }
-             employees.Remove(employee);
-             return NoContent();
-         }*/
+        public IActionResult DeleteEmployee(int id)
+        {
+            var employee = employees.SingleOrDefault(employee => employee.Id == id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            employees.Remove(employee);
+            return NoContent();
+        }
 
-        /* [HttpPut]
-         public IActionResult UpdateEmployee(Employee updatedEmployee)
-         {
-             var employee = employees.SingleOrDefault(e => e.Id == updatedEmployee.Id);
-             if (employee == null)
-             {
-                 return NotFound();
-             }
-             if (!string.IsNullOrEmpty(updatedEmployee.Name))
-             {
-                 employee.Name = updatedEmployee.Name;
-             }
-             employee.Name = updatedEmployee.Name;
-             employee.Salary = updatedEmployee.Salary;
+        [HttpPut]
+        public IActionResult UpdateEmployee(Employee updatedEmployee)
+        {
+            var employee = employees.SingleOrDefault(e => e.Id == updatedEmployee.Id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            if (!string.IsNullOrEmpty(updatedEmployee.Name))
+            {
+                employee.Name = updatedEmployee.Name;
+            }
+            employee.Name = updatedEmployee.Name;
+            employee.Salary = updatedEmployee.Salary;
 
-             return Ok(updatedEmployee);
-         }*/
+            return Ok(updatedEmployee);
+        }
 
     }
 }
