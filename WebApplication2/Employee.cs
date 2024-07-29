@@ -3,7 +3,7 @@ namespace WebApplication2
 {
     public class Employee
     {
-        public int Id { get; set; }
+        public int Id { get; set; } //Id is by default the primary key if you want to rename it use [key]
 
         public string Name { get; set; }
 

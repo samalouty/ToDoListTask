@@ -1,0 +1,2 @@
+add-migration [new DB name]
+update-database   // to see the new database in the SQL Server Project explorer
